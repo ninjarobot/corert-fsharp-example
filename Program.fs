@@ -6,6 +6,7 @@ open Mono.Options
 
 [<EntryPoint>]
 let main argv =
+    printfn "%s" "Hello, CoreRT"
     let cliOpts = OptionSet()
     let mutable (url:string) = null
     cliOpts.Add("url=", fun x -> url <- x) |> ignore
