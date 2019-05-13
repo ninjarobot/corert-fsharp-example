@@ -2,17 +2,24 @@
 
   <PropertyGroup>
     <OutputType>Exe</OutputType>
-    <TargetFramework>netcoreapp2.1</TargetFramework>
+    <TargetFramework>netcoreapp2.2</TargetFramework>
   </PropertyGroup>
 
   <ItemGroup>
+    <RdXmlFile Include="rd.xml" />
+    <Compile Include="Arguments.fs" />
     <Compile Include="Program.fs" />
   </ItemGroup>
 
   <ItemGroup>
     <PackageReference Include="Microsoft.DotNet.ILCompiler" Version="1.0.0-alpha-*" />
-    <PackageReference Include="Mono.Options" Version="5.3.0.1" />
-    <PackageReference Include="System.Net.Http" Version="4.3.4" />
+     <PackageReference Include="System.Configuration.ConfigurationManager" Version="4.5.0" />  
+  </ItemGroup>
+
+  <ItemGroup>
+    <Reference Include="Argu">
+      <HintPath>..\Argu\src\Argu\bin\Debug\netstandard2.0\Argu.dll</HintPath>
+    </Reference>
   </ItemGroup>
 
 </Project>

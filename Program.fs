@@ -1,36 +1,17 @@
-﻿open System
-open System.Net.Http
-open System.Security.Cryptography
-open System.Text
-open Mono.Options
+﻿module Argu.Samples.LS.Main
+
+open System
+open Argu
 
 [<EntryPoint>]
-let main argv =
-    let cliOpts = OptionSet()
-    let mutable (url:string) = null
-    cliOpts.Add("url=", fun x -> url <- x) |> ignore
+let main argv = 
+    let errorHandler = ProcessExiter(colorizer = function ErrorCode.HelpText -> None | _ -> Some ConsoleColor.Red)
+    let parser = ArgumentParser.Create<LsArguments>(programName = "ls", errorHandler = errorHandler)
 
-    let mutable (stringToHash:string) = null
-    cliOpts.Add("hashme=", fun x -> stringToHash <- x) |> ignore
+    let results = parser.ParseCommandLine argv
 
-    cliOpts.Parse argv |> ignore 
+    printfn "Got parse results %A" <| results.GetAllResults()
+    let files = results.GetResult(Files, defaultValue = [])
+    printfn "Listing files %A" files
 
-    if String.IsNullOrWhiteSpace stringToHash && String.IsNullOrWhiteSpace url then
-        Console.WriteLine "Usage: littleClient [args]"
-        cliOpts.WriteOptionDescriptions Console.Out
-    else
-        if not (isNull url) then
-            use http = new HttpClient ()
-            async {
-                let! res = http.GetAsync url |> Async.AwaitTask
-                let! content = res.Content.ReadAsStringAsync () |> Async.AwaitTask
-                Console.WriteLine content
-            } |> Async.RunSynchronously
-        elif not (isNull stringToHash) then
-            use alg = SHA256.Create ()
-            stringToHash
-            |> Encoding.UTF8.GetBytes
-            |> alg.ComputeHash
-            |> Convert.ToBase64String
-            |> Console.WriteLine
-    0 // return an integer exit code
+    0
