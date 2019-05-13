@@ -1,28 +1,46 @@
 <Directives>
     <Application>
-        <Assembly Name="FSharp.Core" Dynamic="Required All"> 
+        <Assembly Name="FSharp.Core" Dynamic="Required All">
             <Type Name="Microsoft.FSharp.Core.PrintfImpl+Specializations`3[[System.Object,System.Private.CoreLib],[System.Object,System.Private.CoreLib],[System.Object,System.Private.CoreLib]]" Dynamic="Required All">
                 <Method Name="Final1" Dynamic="Required">
                     <GenericArgument Name="System.Object, System.Private.CoreLib" />
-                </Method> 
+                </Method>
                 <Method Name="FinalFastEnd1" Dynamic="Required">
                     <GenericArgument Name="System.Object, System.Private.CoreLib" />
-                </Method> 
+                </Method>
                 <Method Name="FinalFastStart1" Dynamic="Required">
+                    <GenericArgument Name="System.Object, System.Private.CoreLib" />
+                </Method>
+                <Method Name="FinalFastStart2" Dynamic="Required">
+                    <GenericArgument Name="System.Object, System.Private.CoreLib" />
                     <GenericArgument Name="System.Object, System.Private.CoreLib" />
                 </Method> 
                 <Method Name="FinalFast1" Dynamic="Required">
                     <GenericArgument Name="System.Object, System.Private.CoreLib" />
-                </Method> 
+                </Method>
                 <Method Name="Final2" Dynamic="Required">
                     <GenericArgument Name="System.Object, System.Private.CoreLib" />
                     <GenericArgument Name="System.Object, System.Private.CoreLib" />
-                </Method> 
+                </Method>
                 <Method Name="FinalFastEnd2" Dynamic="Required">
                     <GenericArgument Name="System.Object, System.Private.CoreLib" />
                     <GenericArgument Name="System.Object, System.Private.CoreLib" />
                 </Method>
             </Type> 
+        </Assembly>
+        <Assembly Name="littleClient" Dynamic="Required All"> 
+            <Type Name="Argu.Samples.LS.Size[]" Dynamic="Required All" />
+            <Type Name="Argu.Samples.LS.QuotingStyle[]" Dynamic="Required All" />
+        </Assembly>
+        <Assembly Name="Argu" Dynamic="Required All"> 
+            <Type Name="Argu.Utils+Existential`1[[Argu.Samples.LS.Size, littleClient]]" Dynamic="Required All" />
+            <Type Name="Argu.Utils+Existential`1[[Argu.Samples.LS.ColorWhen, littleClient]]" Dynamic="Required All" />
+            <Type Name="Argu.Utils+Existential`1[[System.Char, System.Private.CoreLib]]" Dynamic="Required All" />
+            <Type Name="Argu.Utils+Existential`1[[Argu.Samples.LS.QuotingStyle, littleClient]]>" Dynamic="Required All" />
+            <Type Name="Argu.Utils+Existential`1[[System.Int32, System.Private.CoreLib]]" Dynamic="Required All" />
+        </Assembly>
+        <Assembly Name="System.Private.CoreLib" Dynamic="Required All">
+            <Type Name="System.Tuple`5[[System.String,System.Private.CoreLib],[System.Int32,System.Private.CoreLib],[System.Int32,System.Private.CoreLib],[System.Int32,System.Private.CoreLib],[System.Int32,System.Private.CoreLib]]" Dynamic="Required All" />
         </Assembly>
     </Application>
 </Directives>
