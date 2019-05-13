@@ -12,7 +12,13 @@
 
   <ItemGroup>
     <PackageReference Include="Microsoft.DotNet.ILCompiler" Version="1.0.0-alpha-*" />
-    <PackageReference Include="Argu" Version="5.3.0" /> 
+     <PackageReference Include="System.Configuration.ConfigurationManager" Version="4.5.0" />  
+  </ItemGroup>
+
+  <ItemGroup>
+    <Reference Include="Argu">
+      <HintPath>..\Argu\src\Argu\bin\Debug\netstandard2.0\Argu.dll</HintPath>
+    </Reference>
   </ItemGroup>
 
 </Project>
