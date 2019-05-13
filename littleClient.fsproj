@@ -6,6 +6,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <RdXmlFile Include="rd.xml" />
     <Compile Include="Arguments.fs" />
     <Compile Include="Program.fs" />
   </ItemGroup>
